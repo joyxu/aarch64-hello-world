@@ -15,9 +15,10 @@ all: $(NAME)
 
 $(NAME): main.o startup.o
 	${CROSS}ld $(LDFLAGS) -o $@ -T link.ld $<
+	${CROSS}objcopy -O binary $@ test.bin
 
 clean:
-	rm -f $(NAME) main.o startup.o
+	rm -f $(NAME) main.o startup.o test.bin
 
 qemu: $(NAME)
 	$(QEMU) $(QEMU_FLAGS) -kernel $(NAME)

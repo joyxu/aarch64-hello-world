@@ -1,5 +1,6 @@
 // Data register of first UART (PL011)
-volatile unsigned int * const UART0_DR = (unsigned int *) 0x09000000;
+volatile unsigned int * const UART0_DR = (unsigned int *) 0x602b0000;
+/* volatile unsigned int * const UART0_DR = (unsigned int *) 0x09000000; */
 
 // Stop guest so Qemu terminates
 void system_off(void);
@@ -11,8 +12,8 @@ void print(const char *s) {
 }
 
 int main() {
-	print("Hello world!\n");
-	system_off();
+	print("Hello world\n");
+	//system_off();
 
 	return 0;
 }
